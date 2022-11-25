@@ -2,9 +2,9 @@ clc
 clear all
 close all
 
-for File_path = 1%:3
+for File_path = 1:3
     path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\15.CROSS_VALIDATION_DATA\',num2str(File_path));
-    for Order_K_FOLD = 1%:4
+    for Order_K_FOLD = 1:4
         TRAIN_TRAIN_name = append(path_name,'\TRAIN_TRAIN_FOLD_',num2str(Order_K_FOLD),'.mat');
         TRAIN_TEST_name = append(path_name,'\TRAIN_TEST_FOLD_',num2str(Order_K_FOLD),'.mat');
         TRAIN_TRAIN_load = load(TRAIN_TRAIN_name);
