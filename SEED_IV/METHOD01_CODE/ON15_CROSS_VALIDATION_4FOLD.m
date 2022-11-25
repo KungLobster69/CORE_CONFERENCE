@@ -43,37 +43,18 @@ for File_path = 1:3
     for Order_K_FOLD = 1:K_FOLD
         TRAIN_TRAIN = TRAIN_TRAIN_RANDOM;
         % TRAIN TEST DATA %
+        TRAIN_TEST = {};
         for SAMPLE_TRAIN_TEST = 1:SIZE_TRAIN_TEST
             TRAIN_TEST{SAMPLE_TRAIN_TEST,1} = TRAIN_TRAIN_RANDOM{SAMPLE_TRAIN_TEST+NEXT_FOLD,1};
             TRAIN_TEST{SAMPLE_TRAIN_TEST,2} = TRAIN_TRAIN_RANDOM{SAMPLE_TRAIN_TEST+NEXT_FOLD,2};
             TRAIN_TRAIN{SAMPLE_TRAIN_TEST+NEXT_FOLD,1} = {};
             TRAIN_TRAIN{SAMPLE_TRAIN_TEST+NEXT_FOLD,2} = {};
         end
-        % Data management %
-        for SAMPLE_TRAIN_TRAIN = 1:SIZE_TRAIN_TRAIN_RANDOM
-            if SAMPLE_TRAIN_TRAIN <= SIZE_TRAIN_TRAIN
-                CHECK_EMPTY = isempty(TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN});
-                if CHECK_EMPTY == 1
-                    TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN,1} = TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN+SIZE_TRAIN_TEST,1};
-                    TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN,2} = TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN+SIZE_TRAIN_TEST,2};
-                    TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN+SIZE_TRAIN_TEST,1} = {};
-                    TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN+SIZE_TRAIN_TEST,2} = {};
-                else
-                    TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN,1} = TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN,1};
-                    TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN,2} = TRAIN_TRAIN{SAMPLE_TRAIN_TRAIN,2};
-                end
-            end
-        end
-        % Delete Empty %
-        for i = 1:SIZE_TRAIN_TRAIN
-            TRAIN_TRAIN_DELETE_EMPTY{i,1} = TRAIN_TRAIN{i,1};
-            TRAIN_TRAIN_DELETE_EMPTY{i,2} = TRAIN_TRAIN{i,2};
-        end
         NEXT_FOLD = NEXT_FOLD+SIZE_TRAIN_TEST;
         % SAVE_DATA %
         create_TRAIN_TRAIN_DATA = append(create_path,'\TRAIN_TRAIN_FOLD_',num2str(Order_K_FOLD),'.mat');
         create_TRAIN_TEST_DATA = append(create_path,'\TRAIN_TEST_FOLD_',num2str(Order_K_FOLD),'.mat');
-        save(create_TRAIN_TRAIN_DATA,'TRAIN_TRAIN_DELETE_EMPTY','-v7.3')
+        save(create_TRAIN_TRAIN_DATA,'TRAIN_TRAIN','-v7.3')
         save(create_TRAIN_TEST_DATA,'TRAIN_TEST','-v7.3')
     end
 end
