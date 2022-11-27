@@ -11,15 +11,16 @@ for File_path = 1:3
         TRAIN_TEST_load = load(TRAIN_TEST_name);
         TRAIN_TRAIN = TRAIN_TRAIN_load.TRAIN_TRAIN;
         TRAIN_TEST = TRAIN_TEST_load.TRAIN_TEST;
+        SIZE_TRAIN_TRAIN = size(TRAIN_TRAIN,1);
+        SIZE_TRAIN_TEST = size(TRAIN_TEST,1);
         Edit_Distance_FOLD = [];
-        for ROW_TRAIN_TRAIN = 1:size(TRAIN_TRAIN,1)
-            for ROW_TRAIN_TEST = 1:size(TRAIN_TEST,1)
-                Sample_TRAIN_TRAIN = TRAIN_TRAIN{ROW_TRAIN_TRAIN,1};
-                Sample_TRAIN_TEST = TRAIN_TEST{ROW_TRAIN_TEST,1};
-                Check_Empty_TRAIN_TRAIN = isempty(Sample_TRAIN_TRAIN);
-                Check_Empty_TRAIN_TEST = isempty(Sample_TRAIN_TEST);
-                if Check_Empty_TRAIN_TRAIN == 0 && Check_Empty_TRAIN_TEST == 0
-                    Edit_Distance_FOLD(ROW_TRAIN_TEST,ROW_TRAIN_TRAIN) = F01_EditDistance(Sample_TRAIN_TRAIN,Sample_TRAIN_TEST);
+        for ROW_TRAIN_TRAIN = 1:SIZE_TRAIN_TRAIN
+            SAMPLE_TRAIN_TRAIN = TRAIN_TRAIN{ROW_TRAIN_TRAIN,1};
+            for ROW_TRAIN_TEST = 1:SIZE_TRAIN_TEST
+                SAMPLE_TRAIN_TEST = TRAIN_TEST{ROW_TRAIN_TEST,1};
+                Check_Empty_TRAIN_TRAIN = isempty(SAMPLE_TRAIN_TRAIN);
+                if Check_Empty_TRAIN_TRAIN == 0
+                    Edit_Distance_FOLD(ROW_TRAIN_TRAIN,ROW_TRAIN_TEST) = F01_EditDistance(SAMPLE_TRAIN_TRAIN,SAMPLE_TRAIN_TEST);
                 else
                     Edit_Distance_FOLD = 0;
                 end
