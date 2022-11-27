@@ -28,9 +28,19 @@ for File_path = 1:3
         NEXT_HUMAN = NEXT_HUMAN+24;
     end
     % RANDOM DATA %
-    Random_ROW = randi(312,312,1);
+    Random_ROW = randperm(312);
+    
+    % CHECK NUMBER %
+    x = unique(Random_ROW);
+    N = numel(x);
+    count = zeros(N,1);
+    for k = 1:N
+        count(k) = sum(Random_ROW==x(k));
+    end
+    disp([ x(:) count ]);
+    
     for RANDOM = 1:size(TRAIN_TRAIN_ORI,1)
-        Sample_Random_ROW = Random_ROW(RANDOM,1);
+        Sample_Random_ROW = Random_ROW(1,RANDOM);
         TRAIN_TRAIN_RANDOM(RANDOM,:) = TRAIN_TRAIN_ORI(Sample_Random_ROW,:);
     end
     K_FOLD = 4;

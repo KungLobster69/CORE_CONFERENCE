@@ -4,6 +4,7 @@ close all
 
 for File_path = 1:3
     path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\15.CROSS_VALIDATION_DATA\',num2str(File_path));
+    Edit_Distance_DATA = {};
     for Order_K_FOLD = 1:4
         TRAIN_TRAIN_name = append(path_name,'\TRAIN_TRAIN_FOLD_',num2str(Order_K_FOLD),'.mat');
         TRAIN_TEST_name = append(path_name,'\TRAIN_TEST_FOLD_',num2str(Order_K_FOLD),'.mat');
@@ -22,7 +23,7 @@ for File_path = 1:3
                 if Check_Empty_TRAIN_TRAIN == 0
                     Edit_Distance_FOLD(ROW_TRAIN_TRAIN,ROW_TRAIN_TEST) = F01_EditDistance(SAMPLE_TRAIN_TRAIN,SAMPLE_TRAIN_TEST);
                 else
-                    Edit_Distance_FOLD = 0;
+                    Edit_Distance_FOLD(ROW_TRAIN_TRAIN,ROW_TRAIN_TEST) = 0;
                 end
             end
         end
