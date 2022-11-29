@@ -34,7 +34,7 @@ for File_path = 1:3
         % Select Sample KNN %
         Edit_Distance_Sort = sort(Edit_Distance_Delete_empty);
         KNN = 1;
-        for Number_KNN = 1:10
+        for Number_KNN = 1
             Sample_KNN = [];
             for ROW = 1:KNN
                 Sample_KNN(ROW,:) = Edit_Distance_Sort(ROW,:);
@@ -63,53 +63,7 @@ for File_path = 1:3
                     end
                 end
             end
-            % Compare Class Label %
-            ROW_ZERO_LABEL = [];
-            for ROW = 1:KNN
-                for COL = 1:size(ROW_ZERO,2)
-                    Sample_ROW_ZERO = ROW_ZERO(ROW,COL);
-                    ROW_ZERO_LABEL(ROW,COL) = Class_label_TRAIN_Delete_empty{Sample_ROW_ZERO,1};
-                end
-            end
-            % Check Class Label %
-            for COL = 1:size(ROW_ZERO_LABEL,2)
-                COUNT_CLASS00 = 0;
-                COUNT_CLASS01 = 0;
-                COUNT_CLASS02 = 0;
-                COUNT_CLASS03 = 0;
-                for ROW = 1:size(ROW_ZERO_LABEL,1)
-                    Sample_ROW_ZERO_LABEL = ROW_ZERO_LABEL(ROW,COL);
-                    if Sample_ROW_ZERO_LABEL == 0
-                        COUNT_CLASS00 = COUNT_CLASS00+1;
-                    elseif Sample_ROW_ZERO_LABEL == 1
-                        COUNT_CLASS01 = COUNT_CLASS01+1;
-                    elseif Sample_ROW_ZERO_LABEL == 2
-                        COUNT_CLASS02 = COUNT_CLASS02+1;
-                    elseif Sample_ROW_ZERO_LABEL == 3
-                        COUNT_CLASS03 = COUNT_CLASS03+1;
-                    end
-                end
-                if COUNT_CLASS00 > COUNT_CLASS01 && COUNT_CLASS00 > COUNT_CLASS02 && COUNT_CLASS00 > COUNT_CLASS03
-                    Label_TRAIN_TEST(COL,1) = 0;
-                elseif COUNT_CLASS01 > COUNT_CLASS00 && COUNT_CLASS01 > COUNT_CLASS02 && COUNT_CLASS01 > COUNT_CLASS03
-                    Label_TRAIN_TEST(COL,1) = 1;
-                elseif COUNT_CLASS02 > COUNT_CLASS00 && COUNT_CLASS02 > COUNT_CLASS01 && COUNT_CLASS02 > COUNT_CLASS03
-                    Label_TRAIN_TEST(COL,1) = 2;
-                elseif COUNT_CLASS03 > COUNT_CLASS00 && COUNT_CLASS03 > COUNT_CLASS02 && COUNT_CLASS03 > COUNT_CLASS01
-                    Label_TRAIN_TEST(COL,1) = 3;
-                end
-            end
-            % Check Acc %
-            ACC = 0;
-            for ROW = 1:size(Class_label_TEST,1)
-                if Class_label_TEST{ROW,1} == Label_TRAIN_TEST(ROW,1)
-                    ACC = ACC+1;
-                end
-            end
-            PERCENT_ACC = (ACC/size(Class_label_TEST,1))*100;
-            PERCENT_ACC_FOLD(Number_KNN,Order_K_FOLD) = PERCENT_ACC;
-            KNN = KNN+2;
+            
         end
-        PERCENT_ACC_FILE{File_path,1} = PERCENT_ACC_FOLD;
     end
 end
