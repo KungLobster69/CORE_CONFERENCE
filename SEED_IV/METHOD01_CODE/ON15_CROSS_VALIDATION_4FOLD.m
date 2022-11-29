@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-for File_path = 1:3
+for File_path = 1%:3
     path_TRAIN_CONVERT2STR_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\07.CONVERT2STR\',num2str(File_path));
     TRAIN_CONVERT2STR_name = append(path_TRAIN_CONVERT2STR_name,'\TRAIN_TRAIN_CONVERT2STR.mat');
     TRAIN_CONVERT2STR_load = load(TRAIN_CONVERT2STR_name);
@@ -39,32 +39,27 @@ for File_path = 1:3
     end
     disp([ x(:) count ]);
     
-    for RANDOM = 1:size(TRAIN_TRAIN_ORI,1)
-        Sample_Random_ROW = Random_ROW(1,RANDOM);
-        TRAIN_TRAIN_RANDOM(RANDOM,:) = TRAIN_TRAIN_ORI(Sample_Random_ROW,:);
-    end
     K_FOLD = 4;
-    SIZE_TRAIN_TRAIN_RANDOM = size(TRAIN_TRAIN_RANDOM,1);
-    SIZE_TRAIN_TEST = SIZE_TRAIN_TRAIN_RANDOM/K_FOLD;
-    SIZE_TRAIN_TRAIN = SIZE_TRAIN_TRAIN_RANDOM - SIZE_TRAIN_TEST;
-    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\15.CROSS_VALIDATION_DATA\',num2str(File_path));
-    mkdir(create_path)
-    NEXT_FOLD = 0;
-    for Order_K_FOLD = 1:K_FOLD
-        TRAIN_TRAIN = TRAIN_TRAIN_RANDOM;
-        % TRAIN TEST DATA %
-        TRAIN_TEST = {};
-        for SAMPLE_TRAIN_TEST = 1:SIZE_TRAIN_TEST
-            TRAIN_TEST{SAMPLE_TRAIN_TEST,1} = TRAIN_TRAIN_RANDOM{SAMPLE_TRAIN_TEST+NEXT_FOLD,1};
-            TRAIN_TEST{SAMPLE_TRAIN_TEST,2} = TRAIN_TRAIN_RANDOM{SAMPLE_TRAIN_TEST+NEXT_FOLD,2};
-            TRAIN_TRAIN{SAMPLE_TRAIN_TEST+NEXT_FOLD,1} = {};
-            TRAIN_TRAIN{SAMPLE_TRAIN_TEST+NEXT_FOLD,2} = {};
-        end
-        NEXT_FOLD = NEXT_FOLD+SIZE_TRAIN_TEST;
-        % SAVE_DATA %
-        create_TRAIN_TRAIN_DATA = append(create_path,'\TRAIN_TRAIN_FOLD_',num2str(Order_K_FOLD),'.mat');
-        create_TRAIN_TEST_DATA = append(create_path,'\TRAIN_TEST_FOLD_',num2str(Order_K_FOLD),'.mat');
-        save(create_TRAIN_TRAIN_DATA,'TRAIN_TRAIN','-v7.3')
-        save(create_TRAIN_TEST_DATA,'TRAIN_TEST','-v7.3')
-    end
+    
+    
+    %     create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\15.CROSS_VALIDATION_DATA\',num2str(File_path));
+    %     mkdir(create_path)
+    %     NEXT_FOLD = 0;
+    %     for Order_K_FOLD = 1:K_FOLD
+    %         TRAIN_TRAIN = TRAIN_TRAIN_RANDOM;
+    %         % TRAIN TEST DATA %
+    %         TRAIN_TEST = {};
+    %         for SAMPLE_TRAIN_TEST = 1:SIZE_TRAIN_TEST
+    %             TRAIN_TEST{SAMPLE_TRAIN_TEST,1} = TRAIN_TRAIN_RANDOM{SAMPLE_TRAIN_TEST+NEXT_FOLD,1};
+    %             TRAIN_TEST{SAMPLE_TRAIN_TEST,2} = TRAIN_TRAIN_RANDOM{SAMPLE_TRAIN_TEST+NEXT_FOLD,2};
+    %             TRAIN_TRAIN{SAMPLE_TRAIN_TEST+NEXT_FOLD,1} = {};
+    %             TRAIN_TRAIN{SAMPLE_TRAIN_TEST+NEXT_FOLD,2} = {};
+    %         end
+    %         NEXT_FOLD = NEXT_FOLD+SIZE_TRAIN_TEST;
+    %         % SAVE_DATA %
+    %         create_TRAIN_TRAIN_DATA = append(create_path,'\TRAIN_TRAIN_FOLD_',num2str(Order_K_FOLD),'.mat');
+    %         create_TRAIN_TEST_DATA = append(create_path,'\TRAIN_TEST_FOLD_',num2str(Order_K_FOLD),'.mat');
+    %         save(create_TRAIN_TRAIN_DATA,'TRAIN_TRAIN','-v7.3')
+    %         save(create_TRAIN_TEST_DATA,'TRAIN_TEST','-v7.3')
+    %     end
 end
