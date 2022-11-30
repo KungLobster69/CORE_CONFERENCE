@@ -28,6 +28,7 @@ for File_path = 1:3
         NEXT_HUMAN = NEXT_HUMAN+24;
     end
     % RANDOM DATA %
+    Random_ROW = [];
     Random_ROW = randperm(312);
     
     % CHECK NUMBER %
@@ -37,7 +38,6 @@ for File_path = 1:3
     for k = 1:N
         count(k) = sum(Random_ROW==x(k));
     end
-    disp([ x(:) count ]);
     
     create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\15.CROSS_VALIDATION_DATA\',num2str(File_path));
     mkdir(create_path)
@@ -51,7 +51,7 @@ for File_path = 1:3
         TRAIN_TEST_ROW = [];
         for COL = 1:SIZE_TRAIN_TEST
             TRAIN_TEST_ROW(1,COL) = Random_ROW(1,COL+NEXT_FOLD);
-            TRAIN_TRAIN_COL(1,COL) = 0;
+            TRAIN_TRAIN_COL(1,COL+NEXT_FOLD) = 0;
         end
         TRAIN_TRAIN_ROW = [];
         COL_NEW = 1;
