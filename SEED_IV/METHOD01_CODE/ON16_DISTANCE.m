@@ -19,12 +19,7 @@ for File_path = 1:3
             SAMPLE_TRAIN_TRAIN = TRAIN_TRAIN{ROW_TRAIN_TRAIN,1};
             for ROW_TRAIN_TEST = 1:SIZE_TRAIN_TEST
                 SAMPLE_TRAIN_TEST = TRAIN_TEST{ROW_TRAIN_TEST,1};
-                Check_Empty_TRAIN_TRAIN = isempty(SAMPLE_TRAIN_TRAIN);
-                if Check_Empty_TRAIN_TRAIN == 0
-                    Edit_Distance_FOLD(ROW_TRAIN_TRAIN,ROW_TRAIN_TEST) = F01_EditDistance(SAMPLE_TRAIN_TRAIN,SAMPLE_TRAIN_TEST);
-                else
-                    Edit_Distance_FOLD(ROW_TRAIN_TRAIN,ROW_TRAIN_TEST) = 0;
-                end
+                Edit_Distance_FOLD(ROW_TRAIN_TRAIN,ROW_TRAIN_TEST) = F01_EditDistance(SAMPLE_TRAIN_TRAIN,SAMPLE_TRAIN_TEST);
             end
         end
         Edit_Distance_DATA{Order_K_FOLD,1} = Edit_Distance_FOLD;
