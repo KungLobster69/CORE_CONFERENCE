@@ -14,7 +14,7 @@ for File_path = 1%:3
         % Select Sample KNN %
         Edit_Distance_Sort = sort(Edit_Distance_FOLD);
         KNN = 1;
-        for Number_KNN = 1:10
+        for Number_KNN = 1:2
             Sample_KNN = [];
             for ROW = 1:KNN
                 Sample_KNN(ROW,:) = Edit_Distance_Sort(ROW,:);
@@ -43,7 +43,27 @@ for File_path = 1%:3
                     end
                 end
             end
-            
+            % Compare Class Label %
+            for ROW = 1:KNN
+                for COL = 1:size(ROW_ZERO,2)
+                    Sample_ROW_ZERO = ROW_ZERO(ROW,COL);
+                    ROW_ZERO_LABEL(ROW,COL) = Class_label_TRAIN{Sample_ROW_ZERO,1};
+                end
+            end
+            % Calcurate u %
+            m = 2; % default
+            Degree = 2/(m-1);
+            for COL = 2%:size(Sample_KNN,2)
+                % CHECK NUMBER %
+                x = unique(ROW_ZERO_LABEL(:,COL));
+                N = numel(x);
+                count = zeros(N,1);
+                for k = 1:N
+                    count(k) = sum(ROW_ZERO_LABEL(:,COL)==x(k));
+                end
+                
+            end
+            KNN = KNN+2;
         end
     end
 end
