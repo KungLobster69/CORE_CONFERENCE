@@ -3,7 +3,7 @@ clear all
 close all
 
 for File_path = 1:3
-    path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\05.CLUSTERING_52GROUP\',num2str(File_path));
+    path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\05.CLUSTERING_62GROUP\',num2str(File_path));
     TRAIN_TRAIN_BAND_name = append(path_name,'\TRAIN_TRAIN_BAND.mat');
     TRAIN_TRAIN_CLUSTERING_name = append(path_name,'\TRAIN_TRAIN_CLUSTERING.mat');
     TRAIN_TRAIN_BAND_load = load(TRAIN_TRAIN_BAND_name);
@@ -38,7 +38,7 @@ for File_path = 1:3
     end
     
     %% SAVE_DATA
-    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\06.SORT_BY_VDO\',num2str(File_path));
+    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\06.SORT_BY_VDO_62\',num2str(File_path));
     create_TRAIN_TRAIN_CLUSTERING_VDO = append(create_path,'\TRAIN_TRAIN_CLUSTERING_VDO.mat');
     mkdir(create_path)
     save(create_TRAIN_TRAIN_CLUSTERING_VDO,'TRAIN_TRAIN_CLUSTERING_VDO','-v7.3')

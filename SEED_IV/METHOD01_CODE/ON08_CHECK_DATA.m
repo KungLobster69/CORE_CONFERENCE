@@ -3,7 +3,7 @@ clear all
 close all
 
 for File_path = 1:3
-    path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\07.CONVERT2STR\',num2str(File_path));
+    path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\07.CONVERT2STR_62\',num2str(File_path));
     TRAIN_TRAIN_CONVERT2STR_name = append(path_name,'\TRAIN_TRAIN_CONVERT2STR.mat');
     TRAIN_TRAIN_CONVERT2STR_load = load(TRAIN_TRAIN_CONVERT2STR_name);
     TRAIN_TRAIN_CONVERT2STR = TRAIN_TRAIN_CONVERT2STR_load.TRAIN_TRAIN_CONVERT2STR;
@@ -16,9 +16,9 @@ for File_path = 1:3
         end
     end
     CHECK_REPEATER_FILE{File_path,1} = CHECK_REPEATER;
-    %% SAVE_DATA
-    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\08.CHECK_REPEATER\',num2str(File_path));
-    create_CHECK_REPEATER_FILE = append(create_path,'\CHECK_REPEATER_FILE.mat');
-    mkdir(create_path)
-    save(create_CHECK_REPEATER_FILE,'CHECK_REPEATER_FILE','-v7.3')
 end
+%% SAVE_DATA
+create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\08.CHECK_REPEATER_62');
+create_CHECK_REPEATER_FILE = append(create_path,'\CHECK_REPEATER_FILE.mat');
+mkdir(create_path)
+save(create_CHECK_REPEATER_FILE,'CHECK_REPEATER_FILE','-v7.3')

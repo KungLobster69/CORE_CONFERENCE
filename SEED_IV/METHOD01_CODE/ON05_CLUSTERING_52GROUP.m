@@ -28,7 +28,7 @@ for File_path = 1:3
     end
     
     TRAIN_TRAIN_BAND_CELL2MAT = cell2mat(TRAIN_TRAIN_BAND);
-    k = 52;
+    k = 62;
     [TRAIN_TRAIN_CLUSTERING,TRAIN_TRAIN_CENTER] = kmeans(TRAIN_TRAIN_BAND_CELL2MAT,k,'MaxIter',100);
     
     %% COUNT MEMBERSHIP
@@ -41,7 +41,7 @@ for File_path = 1:3
     disp([ x(:) count ]);
     
     %% SAVE_DATA
-    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\05.CLUSTERING_52GROUP\',num2str(File_path));
+    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\05.CLUSTERING_62GROUP\',num2str(File_path));
     create_TRAIN_TRAIN_BAND = append(create_path,'\TRAIN_TRAIN_BAND.mat');
     create_TRAIN_TRAIN_CLUSTERING = append(create_path,'\TRAIN_TRAIN_CLUSTERING.mat');
     create_TRAIN_TRAIN_CENTER = append(create_path,'\TRAIN_TRAIN_CENTER.mat');

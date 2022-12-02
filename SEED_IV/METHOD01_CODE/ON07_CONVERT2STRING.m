@@ -118,14 +118,34 @@ for File_path = 1:3
                 string = 'y';
             elseif data_num == 52
                 string = 'z';
+            elseif data_num == 53
+                string = '0';
+            elseif data_num == 54
+                string = '1';
+            elseif data_num == 55
+                string = '2';
+            elseif data_num == 56
+                string = '3';
+            elseif data_num == 57
+                string = '4';
+            elseif data_num == 58
+                string = '5';
+            elseif data_num == 59
+                string = '6';
+            elseif data_num == 60
+                string = '7';
+            elseif data_num == 61
+                string = '8';
+            elseif data_num == 62
+                string = '9';
             end
             CONVERT2STR(SAMPLE) = strcat(string);
         end
         TRAIN_TRAIN_CONVERT2STR{VDO,1} = CONVERT2STR;
     end
-        %% SAVE_DATA
-        create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\07.CONVERT2STR\',num2str(File_path));
-        create_TRAIN_TRAIN_CONVERT2STR = append(create_path,'\TRAIN_TRAIN_CONVERT2STR.mat');
-        mkdir(create_path)
-        save(create_TRAIN_TRAIN_CONVERT2STR,'TRAIN_TRAIN_CONVERT2STR','-v7.3')
+    %% SAVE_DATA
+    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\07.CONVERT2STR_62\',num2str(File_path));
+    create_TRAIN_TRAIN_CONVERT2STR = append(create_path,'\TRAIN_TRAIN_CONVERT2STR.mat');
+    mkdir(create_path)
+    save(create_TRAIN_TRAIN_CONVERT2STR,'TRAIN_TRAIN_CONVERT2STR','-v7.3')
 end
