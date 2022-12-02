@@ -2,11 +2,11 @@ clc
 clear all
 close all
 
-for File_path = 1:3
+for File_path = 3
     path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\08.CHECK_REPEATER\',num2str(File_path));
     CHECK_REPEATER_FILE_name = append(path_name,'\CHECK_REPEATER_FILE.mat');
     CHECK_REPEATER_FILE_load = load(CHECK_REPEATER_FILE_name);
-    CHECK_REPEATER = CHECK_REPEATER_FILE_load.CHECK_REPEATER_FILE{1, 1};
+    CHECK_REPEATER = CHECK_REPEATER_FILE_load.CHECK_REPEATER_FILE{3, 1};
     COUNT = 0
     for CUL_CHECK_REPEATER = 1:size(CHECK_REPEATER,2)
         for ROW_CHECK_REPEATER = 1:size(CHECK_REPEATER,1)
