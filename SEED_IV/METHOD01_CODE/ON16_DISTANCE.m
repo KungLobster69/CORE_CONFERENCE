@@ -3,7 +3,7 @@ clear all
 close all
 
 for File_path = 1:3
-    path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\15.CROSS_VALIDATION_DATA\',num2str(File_path));
+    path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\15.CROSS_VALIDATION_DATA_62\',num2str(File_path));
     Edit_Distance_DATA = {};
     for Order_K_FOLD = 1:4
         TRAIN_TRAIN_name = append(path_name,'\TRAIN_TRAIN_FOLD_',num2str(Order_K_FOLD),'.mat');
@@ -26,7 +26,7 @@ for File_path = 1:3
         Edit_Distance_DATA{Order_K_FOLD,2} = TRAIN_TRAIN(:,2);
         Edit_Distance_DATA{Order_K_FOLD,3} = TRAIN_TEST(:,2);
     end
-    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\16.Edit_Distance_DATA\',num2str(File_path));
+    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\16.Edit_Distance_DATA_62\',num2str(File_path));
     mkdir(create_path)
     create_Edit_Distance_DATA = append(create_path,'\Edit_Distance_DATA.mat');
     save(create_Edit_Distance_DATA,'Edit_Distance_DATA','-v7.3')

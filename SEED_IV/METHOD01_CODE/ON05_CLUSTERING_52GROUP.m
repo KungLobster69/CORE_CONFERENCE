@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-for File_path = 1:3
+for File_path = 3%:3
     path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\04.CALCULATE_MOMENT\',num2str(File_path));
     TRAIN_TRAIN_MOMENT_name = append(path_name,'\TRAIN_TRAIN_MOMENT_DATA.mat');
     TRAIN_TRAIN_MOMENT_load = load(TRAIN_TRAIN_MOMENT_name);
@@ -40,13 +40,13 @@ for File_path = 1:3
     end
     disp([ x(:) count ]);
     
-    %% SAVE_DATA
-    create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\05.CLUSTERING_62GROUP\',num2str(File_path));
-    create_TRAIN_TRAIN_BAND = append(create_path,'\TRAIN_TRAIN_BAND.mat');
-    create_TRAIN_TRAIN_CLUSTERING = append(create_path,'\TRAIN_TRAIN_CLUSTERING.mat');
-    create_TRAIN_TRAIN_CENTER = append(create_path,'\TRAIN_TRAIN_CENTER.mat');
-    mkdir(create_path)
-    save(create_TRAIN_TRAIN_BAND,'TRAIN_TRAIN_BAND','-v7.3')
-    save(create_TRAIN_TRAIN_CLUSTERING,'TRAIN_TRAIN_CLUSTERING','-v7.3')
-    save(create_TRAIN_TRAIN_CENTER,'TRAIN_TRAIN_CENTER','-v7.3')
+%     %% SAVE_DATA
+%     create_path = append('E:\THESIS\RESULT\SEED_IV\METHOD01\05.CLUSTERING_62GROUP\',num2str(File_path));
+%     create_TRAIN_TRAIN_BAND = append(create_path,'\TRAIN_TRAIN_BAND.mat');
+%     create_TRAIN_TRAIN_CLUSTERING = append(create_path,'\TRAIN_TRAIN_CLUSTERING.mat');
+%     create_TRAIN_TRAIN_CENTER = append(create_path,'\TRAIN_TRAIN_CENTER.mat');
+%     mkdir(create_path)
+%     save(create_TRAIN_TRAIN_BAND,'TRAIN_TRAIN_BAND','-v7.3')
+%     save(create_TRAIN_TRAIN_CLUSTERING,'TRAIN_TRAIN_CLUSTERING','-v7.3')
+%     save(create_TRAIN_TRAIN_CENTER,'TRAIN_TRAIN_CENTER','-v7.3')
 end
