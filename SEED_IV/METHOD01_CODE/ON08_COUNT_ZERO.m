@@ -3,10 +3,10 @@ clear all
 close all
 
 for File_path = 1:3
-    path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\08.CHECK_REPEATER');
+    path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\08.CHECK_REPEATER_62');
     CHECK_REPEATER_FILE_name = append(path_name,'\CHECK_REPEATER_FILE.mat');
     CHECK_REPEATER_FILE_load = load(CHECK_REPEATER_FILE_name);
-    CHECK_REPEATER = CHECK_REPEATER_FILE_load.CHECK_REPEATER_FILE{File_path, 1};
+    CHECK_REPEATER = CHECK_REPEATER_FILE_load.CHECK_REPEATER_FILE{File_path,1};
     COUNT = 0
     for CUL_CHECK_REPEATER = 1:size(CHECK_REPEATER,2)
         for ROW_CHECK_REPEATER = 1:size(CHECK_REPEATER,1)
