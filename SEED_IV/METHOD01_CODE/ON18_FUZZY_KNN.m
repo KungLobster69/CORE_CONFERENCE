@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-for File_path = 1
+for File_path = 2
     path_name = append('E:\THESIS\RESULT\SEED_IV\METHOD01\16.Edit_Distance_DATA_62\',num2str(File_path));
     Edit_Distance_DATA_name = append(path_name,'\Edit_Distance_DATA.mat');
     Edit_Distance_DATA_load = load(Edit_Distance_DATA_name);
