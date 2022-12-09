@@ -9,10 +9,10 @@ for File_path = 1:3
     DATA_VDO = DATA_VDO_load.DATA_VDO;
     TEST_VDO = {};
     TRAIN_VDO = {};
-    for ROW = 1:10
-        TEST_VDO(ROW,:) = DATA_VDO(ROW+350,:);
+    for ROW = 1:48
+        TEST_VDO(ROW,:) = DATA_VDO(ROW+312,:);
     end
-    for ROW = 1:350
+    for ROW = 1:312
         TRAIN_VDO(ROW,:) = DATA_VDO(ROW,:);
     end
     % SAVE_DATA

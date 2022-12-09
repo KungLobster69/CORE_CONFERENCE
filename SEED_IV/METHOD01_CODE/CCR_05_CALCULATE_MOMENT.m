@@ -14,7 +14,7 @@ for File_path = 1:3
         for ROW_CH = 1:size(BAND_CH,1)
             CH = BAND_CH{ROW_CH,1};
             size_CH = size(CH,2);
-            size_window = 500; % เปลี่ยนขนาด size_window %
+            size_window = 100; % เปลี่ยนขนาด size_window %
             size_end = round((size_CH/size_window)+0.5);
             END_Interval = 0;
             MOMENT = [];
@@ -45,7 +45,7 @@ for File_path = 1:3
     end
     % SAVE_DATA
     create_path = append('E:\THESIS\RESULT\SEED_IV_CONFERENCE\METHOD01\05.CALCULATE_MOMENT\',num2str(File_path));
-    create_CALCULATE_MOMENT = append(create_path,'\Moment_VDO_LV5_500.mat');
+    create_CALCULATE_MOMENT = append(create_path,'\Moment_VDO_LV5_100.mat');
     mkdir(create_path)
     save(create_CALCULATE_MOMENT,'Moment_VDO','-v7.3')
 end

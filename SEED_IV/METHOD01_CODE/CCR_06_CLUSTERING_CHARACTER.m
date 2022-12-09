@@ -23,7 +23,7 @@ for File_path = 1:3
         NEXT_VDO = NEXT_VDO + NEXT_MOMENT;
     end
     
-    k = 60; % CLUSTERING GROUP %
+    k = 40; % CLUSTERING GROUP %
     CLUSTERING_CHARACTER = [];
     CENTER_CHARACTER = [];
     [CLUSTERING_CHARACTER,CENTER_CHARACTER] = kmeans(All_Moment,k,'MaxIter',100);
@@ -48,8 +48,8 @@ for File_path = 1:3
     end
     % SAVE_DATA
     create_path = append('E:\THESIS\RESULT\SEED_IV_CONFERENCE\METHOD01\06.CLUSTERING_CHARACTER\',num2str(File_path));
-    create_CHARACTER_VDO = append(create_path,'\CHARACTER_VDO_LV3_100_60',num2str(k),'.mat');
-    create_CENTER_CHARACTER = append(create_path,'\CENTER_CHARACTER_LV3_100_60',num2str(k),'.mat');
+    create_CHARACTER_VDO = append(create_path,'\CHARACTER_VDO_LV3_100_40',num2str(k),'.mat');
+    create_CENTER_CHARACTER = append(create_path,'\CENTER_CHARACTER_LV3_100_40',num2str(k),'.mat');
     mkdir(create_path)
     save(create_CHARACTER_VDO,'CHARACTER_VDO','-v7.3')
     save(create_CENTER_CHARACTER,'CENTER_CHARACTER','-v7.3')
