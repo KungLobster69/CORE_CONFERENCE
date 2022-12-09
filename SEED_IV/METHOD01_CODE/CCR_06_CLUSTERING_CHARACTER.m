@@ -3,8 +3,8 @@ clear
 close all
 
 for File_path = 1:3
-    path_name = append('E:\THESIS\RESULT\SEED_IV_CONFERENCE\METHOD01\05.CALCULATE_MOMENT\',num2str(File_path));
-    Moment_VDO_name = append(path_name,'\Moment_VDO_LV3_100.mat');
+    path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\05.CALCULATE_MOMENT\',num2str(File_path));
+    Moment_VDO_name = append(path_name,'\Moment_VDO_LV3_500.mat');
     Moment_VDO_load = load(Moment_VDO_name);
     Moment_VDO = Moment_VDO_load.Moment_VDO;
     NEXT_VDO = 0;
@@ -23,7 +23,7 @@ for File_path = 1:3
         NEXT_VDO = NEXT_VDO + NEXT_MOMENT;
     end
     
-    k = [40,50,60,70,80]; % CLUSTERING GROUP %
+    k = [50,60,70,80]; % CLUSTERING GROUP %
     for COL_K = 1:size(k,2)
         CLUSTERING_CHARACTER = [];
         CENTER_CHARACTER = [];
@@ -48,9 +48,9 @@ for File_path = 1:3
             NEXT_VDO = NEXT_VDO + MAX_CHARACTER_VDO(ROW_MAX_CHARACTER_VDO,1);
         end
         % SAVE_DATA
-        create_path = append('E:\THESIS\RESULT\SEED_IV_CONFERENCE\METHOD01\06.CLUSTERING_CHARACTER\',num2str(File_path));
-        create_CHARACTER_VDO = append(create_path,'\CHARACTER_VDO_LV3_100_',num2str(k(COL_K)),'.mat');
-        create_CENTER_CHARACTER = append(create_path,'\CENTER_CHARACTER_LV3_100_',num2str(k(COL_K)),'.mat');
+        create_path = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\06.CLUSTERING_CHARACTER\',num2str(File_path));
+        create_CHARACTER_VDO = append(create_path,'\CHARACTER_VDO_LV3_500_',num2str(k(COL_K)),'.mat');
+        create_CENTER_CHARACTER = append(create_path,'\CENTER_CHARACTER_LV3_500_',num2str(k(COL_K)),'.mat');
         mkdir(create_path)
         save(create_CHARACTER_VDO,'CHARACTER_VDO','-v7.3')
         save(create_CENTER_CHARACTER,'CENTER_CHARACTER','-v7.3')
