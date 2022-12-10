@@ -120,25 +120,61 @@ for File_path = 1%:3
                 elseif DATA_NUM == 52
                     string = 'z';
                 elseif DATA_NUM == 53
-                    string = '';
+                    string = 'α';
                 elseif DATA_NUM == 54
-                    string = '1';
+                    string = 'β';
                 elseif DATA_NUM == 55
-                    string = '2';
+                    string = 'γ';
                 elseif DATA_NUM == 56
-                    string = '3';
+                    string = 'δ';
                 elseif DATA_NUM == 57
-                    string = '4';
+                    string = 'ε';
                 elseif DATA_NUM == 58
-                    string = '5';
+                    string = 'ζ';
                 elseif DATA_NUM == 59
-                    string = '6';
+                    string = 'η';
                 elseif DATA_NUM == 60
-                    string = '7';
+                    string = 'θ';
                 elseif DATA_NUM == 61
-                    string = '8';
+                    string = 'ι';
                 elseif DATA_NUM == 62
-                    string = '9';
+                    string = 'κ';
+                elseif DATA_NUM == 63
+                    string = 'λ';
+                elseif DATA_NUM == 64
+                    string = 'μ';
+                elseif DATA_NUM == 65
+                    string = 'ν';
+                elseif DATA_NUM == 66
+                    string = 'ξ';
+                elseif DATA_NUM == 67
+                    string = 'ο';
+                elseif DATA_NUM == 68
+                    string = 'π';
+                elseif DATA_NUM == 69
+                    string = 'ρ';
+                elseif DATA_NUM == 70
+                    string = 'σ';
+                elseif DATA_NUM == 71
+                    string = 'τ';
+                elseif DATA_NUM == 72
+                    string = 'υ';
+                elseif DATA_NUM == 73
+                    string = 'φ';
+                elseif DATA_NUM == 74
+                    string = 'χ';
+                elseif DATA_NUM == 75
+                    string = 'ψ';
+                elseif DATA_NUM == 76
+                    string = 'ω';
+                elseif DATA_NUM == 77
+                    string = 'Α';
+                elseif DATA_NUM == 78
+                    string = 'Γ';
+                elseif DATA_NUM == 79
+                    string = 'Δ';
+                elseif DATA_NUM == 80
+                    string = 'Θ';
                 end
                 STR_VDO(SAMPLR_CLUSTERING_CHARACTER_VDO) = strcat(string);
             end
