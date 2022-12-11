@@ -2,16 +2,16 @@ clc
 clear all
 close all
 
-for File_path = 1%:3
+for File_path = 1:3
     k = [50,60,70,80];
-    for COL_K = 1%:size(k,2)
+    for COL_K = 1:size(k,2)
         path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\06.CLUSTERING_CHARACTER\',num2str(File_path));
-        CLUSTERING_CHARACTER_name = append(path_name,'\CHARACTER_VDO_LV3_500_',num2str(k(COL_K)),'.mat');
+        CLUSTERING_CHARACTER_name = append(path_name,'\CHARACTER_VDO_LV3_300_',num2str(k(COL_K)),'.mat');
         CLUSTERING_CHARACTER_load = load(CLUSTERING_CHARACTER_name);
         CLUSTERING_CHARACTER = CLUSTERING_CHARACTER_load.CHARACTER_VDO;
         CONVERT2STR = {};
-        for ROW_VDO = 1%:size(CLUSTERING_CHARACTER,1)
-            CLUSTERING_CHARACTER_VDO = CLUSTERING_CHARACTER{ROW_VDO};
+        for ROW_VDO = 1:size(CLUSTERING_CHARACTER,1)
+            CLUSTERING_CHARACTER_VDO = CLUSTERING_CHARACTER{ROW_VDO,1};
             STR_VDO = '';
             for SAMPLR_CLUSTERING_CHARACTER_VDO = 1:size(CLUSTERING_CHARACTER_VDO,1)
                 DATA_NUM = CLUSTERING_CHARACTER_VDO(SAMPLR_CLUSTERING_CHARACTER_VDO,1);
@@ -179,7 +179,12 @@ for File_path = 1%:3
                 STR_VDO(SAMPLR_CLUSTERING_CHARACTER_VDO) = strcat(string);
             end
             CONVERT2STR{ROW_VDO,1} = STR_VDO;
+            CONVERT2STR{ROW_VDO,2} = CLUSTERING_CHARACTER{ROW_VDO,2};
         end
+        % SAVE_DATA %
+        create_path = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\07.CONVERT2STR\',num2str(File_path));
+        create_TRAIN_STR = append(create_path,'\TRAIN_STR_LV3_300_',num2str(k(COL_K)),'.mat');
+        mkdir(create_path)
+        save(create_TRAIN_STR,'CONVERT2STR','-v7.3')
     end
-end
 end
