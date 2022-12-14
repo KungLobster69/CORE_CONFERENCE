@@ -1,37 +1,23 @@
-function dis=EditDistance(t,r)
-%     ft=find(t1(1,:)==0);
-% if ~isempty(ft)
-%     t=t1(1,1:ft(1,1)-1);
-% else
-%     t=t1(1,:);
-% end
-% clear ft
-%     ft=find(r1(1,:)==0);
-% if ~isempty(ft)
-%     r=r1(1,1:ft(1,1)-1);
-% else
-%     r=r1(1,:);
-% end
-n=0;
-for i=1:size(r,2)+1
-    D(i,1)=n;
-    n=n+1;
+function [V,v] = EditDistance(string1,string2)
+
+m=length(string1);
+n=length(string2);
+v=zeros(m+1,n+1);
+for i=1:1:m
+    v(i+1,1)=i;
 end
-n=1;
-for i=2:size(t,2)+1
-    D(1,i)=n;
-    n=n+1;
+for j=1:1:n
+    v(1,j+1)=j;
 end
-for i=2:size(r,2)+1
-    for j=2:size(t,2)+1
-        dif=abs(r(1,i-1)-t(1,j-1));
-        if(dif==0)
-            w=0;
+for i=1:m
+    for j=1:n
+        if (string1(i) == string2(j))
+            v(i+1,j+1)=v(i,j);
         else
-            w=50;
+            v(i+1,j+1)=1+min(min(v(i+1,j),v(i,j+1)),v(i,j));
         end
-        D(i,j)=min([D(i-1,j-1)+w,D(i-1,j)+1,D(i,j-1)+1]);
     end
 end
-dis=D(size(r,2)+1,size(t,2)+1);
+V=v(m+1,n+1);
+%V=V/max(m,n);
 end
