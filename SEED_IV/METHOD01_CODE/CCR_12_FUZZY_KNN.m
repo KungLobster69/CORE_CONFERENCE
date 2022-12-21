@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-for File_path = 1
+for File_path = 2
     path_DISTANCE_FOLD_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\10.DISTANCE_FOLD\',num2str(File_path));
     path_TRAIN_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\09.CROSS_VALIDATION\',num2str(File_path));
     K_FOLD = 4;
