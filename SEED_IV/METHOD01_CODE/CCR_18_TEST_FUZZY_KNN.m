@@ -24,7 +24,7 @@ for File_path = 1
     % Select Sample KNN %
     DISTANCE_FOLD_SORT = sort(DISTANCE_FOLD);
     KNN = 1;
-    for Number_KNN = 1:50
+    for Number_KNN = 1:20
         Sample_KNN = [];
         for ROW = 1:KNN
             Sample_KNN(ROW,:) = DISTANCE_FOLD_SORT(ROW,:);
