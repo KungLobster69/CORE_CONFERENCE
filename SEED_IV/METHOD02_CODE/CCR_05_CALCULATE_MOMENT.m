@@ -3,7 +3,7 @@ clear
 close all
 
 path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD02\04.WAVELET_LV');
-BAND_VDO_name = append(path_name,'\BAND_VDO_WAVELET_LV3.mat');
+BAND_VDO_name = append(path_name,'\BAND_VDO_WAVELET_LV5.mat');
 BAND_VDO_load = load(BAND_VDO_name);
 BAND_VDO = BAND_VDO_load.BAND_VDO;
 Moment_VDO = {};
@@ -13,7 +13,7 @@ for ROW_VDO = 1:size(BAND_VDO,1)
     for ROW_CH = 1:size(BAND_CH,1)
         CH = BAND_CH{ROW_CH,1};
         size_CH = size(CH,2);
-        size_window = 500; % เปลี่ยนขนาด size_window %
+        size_window = 100; % เปลี่ยนขนาด size_window %
         size_end = round((size_CH/size_window)+0.5);
         END_Interval = 0;
         MOMENT = [];
@@ -44,6 +44,6 @@ for ROW_VDO = 1:size(BAND_VDO,1)
 end
 % SAVE_DATA %
 create_path = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD02\05.CALCULATE_MOMENT');
-create_CALCULATE_MOMENT = append(create_path,'\Moment_VDO_LV3_500.mat');
+create_CALCULATE_MOMENT = append(create_path,'\Moment_VDO_LV5_100.mat');
 mkdir(create_path)
 save(create_CALCULATE_MOMENT,'Moment_VDO','-v7.3')
