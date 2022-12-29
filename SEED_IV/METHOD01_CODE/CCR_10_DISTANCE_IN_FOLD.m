@@ -2,8 +2,8 @@ clc
 clear all
 close all
 
-for File_path = 1:3
-    k = [50,60,70,80];
+for File_path = 2%1:3
+    k = 80;%[50,60,70,80];
     for COL_K = 1:size(k,2)
         path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\09.CROSS_VALIDATION\',num2str(File_path));
         K_FOLD = 4;

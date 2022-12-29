@@ -2,24 +2,24 @@ clc
 clear all
 close all
 
-for File_path = 2
-    path_DISTANCE_FOLD_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\17.TEST_DISTANCE\',num2str(File_path));
-    path_TRAIN_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\09.CROSS_VALIDATION\',num2str(File_path));
-    path_TEST_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\03.TRAIN_AND_TEST_DATA\',num2str(File_path));
-    
-    DISTANCE_FOLD_name = append(path_DISTANCE_FOLD_name,'\TEST_DISTANCE_LV5_200_80');
+
+path_DISTANCE_FOLD_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD02\10.DISTANCE_FOLD');
+path_TRAIN_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD02\09.CROSS_VALIDATION');
+K_FOLD = 4;
+for Order_K_FOLD = 1:K_FOLD
+    DISTANCE_FOLD_name = append(path_DISTANCE_FOLD_name,'\DISTANCE_FOLD_LV3_400_70_',num2str(Order_K_FOLD),'.mat');
     DISTANCE_FOLD_load = load(DISTANCE_FOLD_name);
-    DISTANCE_FOLD = DISTANCE_FOLD_load.Edit_Distance;
+    DISTANCE_FOLD = DISTANCE_FOLD_load.Edit_Distance_FOLD;
     
-    TRAIN_name = append(path_TRAIN_name,'\TRAIN_TRAIN_LV5_200_80_3');
-    TRAIN_load = load(TRAIN_name);
-    TRAIN = TRAIN_load.TRAIN_TRAIN;
-    CLASS_LABEL_TRAIN = TRAIN(:,2);
+    TRAIN_TRAIN_name = append(path_TRAIN_name,'\TRAIN_TRAIN_LV3_400_70_',num2str(Order_K_FOLD),'.mat');
+    TRAIN_TRAIN_load = load(TRAIN_TRAIN_name);
+    TRAIN_TRAIN = TRAIN_TRAIN_load.TRAIN_TRAIN;
+    CLASS_LABEL_TRAIN = TRAIN_TRAIN(:,2);
     
-    TEST_name = append(path_TEST_name,'\TEST_VDO.mat');
-    TEST_load = load(TEST_name);
-    TEST = TEST_load.TEST_VDO;
-    CLASS_LABEL_TEST = TEST(:,2);
+    TRAIN_TEST_name = append(path_TRAIN_name,'\TRAIN_TEST_LV3_400_70_',num2str(Order_K_FOLD),'.mat');
+    TRAIN_TEST_load = load(TRAIN_TEST_name);
+    TRAIN_TEST = TRAIN_TEST_load.TRAIN_TEST;
+    CLASS_LABEL_TEST = TRAIN_TEST(:,2);
     
     % Select Sample KNN %
     DISTANCE_FOLD_SORT = sort(DISTANCE_FOLD);
@@ -119,8 +119,9 @@ for File_path = 2
             end
         end
         PERCENT_ACC = (ACC/size(CLASS_LABEL_TEST,1))*100;
-        PERCENT_ACC_K(Number_KNN,1) = PERCENT_ACC;
+        PERCENT_ACC_FOLD(Number_KNN,Order_K_FOLD) = PERCENT_ACC;
         
         KNN = KNN+2;
     end
 end
+PERCENT_ACC_FOLD(:,5) = max(PERCENT_ACC_FOLD,[],2);
