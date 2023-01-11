@@ -2,7 +2,7 @@ clc
 clear all
 close all
 
-k = [50,60,70,80];
+k = [70,80];
 for COL_K = 1:size(k,2)
     path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD02\09.CROSS_VALIDATION');
     K_FOLD = 4;
