@@ -26,6 +26,8 @@ for File_path = 3
         TRAIN_TEST = TRAIN_TEST_load.TRAIN_TEST;
         CLASS_LABEL_TEST = TRAIN_TEST(:,2);
         
+        DISTANCE_FOLD = DISTANCE_FOLD + (1/(10^10));
+        
         % Select Sample KNN %
         DISTANCE_FOLD_SORT = sort(DISTANCE_FOLD);
         KNN = 1;
@@ -113,6 +115,56 @@ for File_path = 3
                     ROW_U(COL,1) = 2;
                 elseif U_3 > U_0 && U_3 > U_1 && U_3 > U_2
                     ROW_U(COL,1) = 3;
+                else
+                    COUNT_CLASS00 = 0;
+                    COUNT_CLASS01 = 0;
+                    COUNT_CLASS02 = 0;
+                    COUNT_CLASS03 = 0;
+                    for ROW = 1:size(ROW_ZERO_LABEL,1)
+                        Sample_ROW_ZERO_LABEL = ROW_ZERO_LABEL(ROW,COL);
+                        if Sample_ROW_ZERO_LABEL == 0
+                            COUNT_CLASS00 = COUNT_CLASS00+1;
+                        elseif Sample_ROW_ZERO_LABEL == 1
+                            COUNT_CLASS01 = COUNT_CLASS01+1;
+                        elseif Sample_ROW_ZERO_LABEL == 2
+                            COUNT_CLASS02 = COUNT_CLASS02+1;
+                        elseif Sample_ROW_ZERO_LABEL == 3
+                            COUNT_CLASS03 = COUNT_CLASS03+1;
+                        end
+                    end
+                    if COUNT_CLASS00 > COUNT_CLASS01 && COUNT_CLASS00 > COUNT_CLASS02 && COUNT_CLASS00 > COUNT_CLASS03
+                        ROW_U(COL,1) = 0;
+                    elseif COUNT_CLASS01 > COUNT_CLASS00 && COUNT_CLASS01 > COUNT_CLASS02 && COUNT_CLASS01 > COUNT_CLASS03
+                        ROW_U(COL,1) = 1;
+                    elseif COUNT_CLASS02 > COUNT_CLASS00 && COUNT_CLASS02 > COUNT_CLASS01 && COUNT_CLASS02 > COUNT_CLASS03
+                        ROW_U(COL,1) = 2;
+                    elseif COUNT_CLASS03 > COUNT_CLASS00 && COUNT_CLASS03 > COUNT_CLASS02 && COUNT_CLASS03 > COUNT_CLASS01
+                        ROW_U(COL,1) = 3;
+                    elseif COUNT_CLASS00 == COUNT_CLASS01
+                        CLASS = [0,1];
+                        ROW_U(COL,1) = randi(CLASS,1);
+                    elseif COUNT_CLASS00 == COUNT_CLASS02
+                        CLASS = [0,2];
+                        ROW_U(COL,1) = randi(CLASS,1);
+                    elseif COUNT_CLASS00 == COUNT_CLASS03
+                        CLASS = [0,3];
+                        ROW_U(COL,1) = randi(CLASS,1);
+                    elseif COUNT_CLASS01 == COUNT_CLASS02
+                        CLASS = [1,2];
+                        ROW_U(COL,1) = randi(CLASS,1);
+                    elseif COUNT_CLASS01 == COUNT_CLASS03
+                        CLASS = [1,3];
+                        ROW_U(COL,1) = randi(CLASS,1);
+                    elseif COUNT_CLASS02 == COUNT_CLASS03
+                        CLASS = [2,3];
+                        ROW_U(COL,1) = randi(CLASS,1);
+                    elseif COUNT_CLASS02 == COUNT_CLASS04
+                        CLASS = [2,4];
+                        ROW_U(COL,1) = randi(CLASS,1);
+                    elseif COUNT_CLASS03 == COUNT_CLASS04
+                        CLASS = [3,4];
+                        ROW_U(COL,1) = randi(CLASS,1);
+                    end
                 end
             end
             
