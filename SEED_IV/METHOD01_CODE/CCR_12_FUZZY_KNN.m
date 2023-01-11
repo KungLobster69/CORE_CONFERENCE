@@ -26,8 +26,6 @@ for File_path = 3
         TRAIN_TEST = TRAIN_TEST_load.TRAIN_TEST;
         CLASS_LABEL_TEST = TRAIN_TEST(:,2);
         
-        DISTANCE_FOLD = DISTANCE_FOLD + (1/(10^10));
-        
         % Select Sample KNN %
         DISTANCE_FOLD_SORT = sort(DISTANCE_FOLD);
         KNN = 1;
