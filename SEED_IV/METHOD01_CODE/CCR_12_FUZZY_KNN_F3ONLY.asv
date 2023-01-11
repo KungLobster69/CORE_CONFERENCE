@@ -12,16 +12,16 @@ for File_path = 3
         CLASS_LABEL_TRAIN = [];
         CLASS_LABEL_TEST = [];
         
-        DISTANCE_FOLD_name = append(path_DISTANCE_FOLD_name,'\DISTANCE_FOLD_LV5_200_50_',num2str(Order_K_FOLD),'.mat');
+        DISTANCE_FOLD_name = append(path_DISTANCE_FOLD_name,'\DISTANCE_FOLD_LV5_300_60_',num2str(Order_K_FOLD),'.mat');
         DISTANCE_FOLD_load = load(DISTANCE_FOLD_name);
         DISTANCE_FOLD = DISTANCE_FOLD_load.Edit_Distance_FOLD;
         
-        TRAIN_TRAIN_name = append(path_TRAIN_name,'\TRAIN_TRAIN_LV5_200_50_',num2str(Order_K_FOLD),'.mat');
+        TRAIN_TRAIN_name = append(path_TRAIN_name,'\TRAIN_TRAIN_LV5_300_50_',num2str(Order_K_FOLD),'.mat');
         TRAIN_TRAIN_load = load(TRAIN_TRAIN_name);
         TRAIN_TRAIN = TRAIN_TRAIN_load.TRAIN_TRAIN;
         CLASS_LABEL_TRAIN = TRAIN_TRAIN(:,2);
         
-        TRAIN_TEST_name = append(path_TRAIN_name,'\TRAIN_TEST_LV5_200_50_',num2str(Order_K_FOLD),'.mat');
+        TRAIN_TEST_name = append(path_TRAIN_name,'\TRAIN_TEST_LV5_300_50_',num2str(Order_K_FOLD),'.mat');
         TRAIN_TEST_load = load(TRAIN_TEST_name);
         TRAIN_TEST = TRAIN_TEST_load.TRAIN_TEST;
         CLASS_LABEL_TEST = TRAIN_TEST(:,2);
