@@ -4,21 +4,19 @@ close all
 
 for File_path = 2
     path_DISTANCE_FOLD_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\17.TEST_DISTANCE\',num2str(File_path));
-    path_TRAIN_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\09.CROSS_VALIDATION\',num2str(File_path));
-    path_TEST_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\03.TRAIN_AND_TEST_DATA\',num2str(File_path));
     
-    DISTANCE_FOLD_name = append(path_DISTANCE_FOLD_name,'\TEST_DISTANCE_LV5_200_80');
+    DISTANCE_FOLD_name = append(path_DISTANCE_FOLD_name,'\TEST_DISTANCE_LV5_200_80_2');
     DISTANCE_FOLD_load = load(DISTANCE_FOLD_name);
     DISTANCE_FOLD = DISTANCE_FOLD_load.Edit_Distance;
     
-    TRAIN_name = append(path_TRAIN_name,'\TRAIN_TRAIN_LV5_200_80_3');
+    TRAIN_name = 'D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\09.CROSS_VALIDATION\1\TRAIN_TRAIN_LV5_200_80_3';
     TRAIN_load = load(TRAIN_name);
     TRAIN = TRAIN_load.TRAIN_TRAIN;
     CLASS_LABEL_TRAIN = TRAIN(:,2);
     
-    TEST_name = append(path_TEST_name,'\TEST_VDO.mat');
+    TEST_name = 'D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\02.CLASS_LABEL\3\DATA_VDO.mat';
     TEST_load = load(TEST_name);
-    TEST = TEST_load.TEST_VDO;
+    TEST = TEST_load.DATA_VDO;
     CLASS_LABEL_TEST = TEST(:,2);
     
     % Select Sample KNN %

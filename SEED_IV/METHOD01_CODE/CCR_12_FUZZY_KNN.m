@@ -2,24 +2,31 @@ clc
 clear all
 close all
 
-for File_path = 2
+for File_path = 3
     path_DISTANCE_FOLD_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\10.DISTANCE_FOLD\',num2str(File_path));
     path_TRAIN_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\09.CROSS_VALIDATION\',num2str(File_path));
     K_FOLD = 4;
     for Order_K_FOLD = 1:K_FOLD
-        DISTANCE_FOLD_name = append(path_DISTANCE_FOLD_name,'\DISTANCE_FOLD_LV5_200_80_',num2str(Order_K_FOLD),'.mat');
+        
+        DISTANCE_FOLD = [];
+        CLASS_LABEL_TRAIN = [];
+        CLASS_LABEL_TEST = [];
+        
+        DISTANCE_FOLD_name = append(path_DISTANCE_FOLD_name,'\DISTANCE_FOLD_LV5_500_50_',num2str(Order_K_FOLD),'.mat');
         DISTANCE_FOLD_load = load(DISTANCE_FOLD_name);
         DISTANCE_FOLD = DISTANCE_FOLD_load.Edit_Distance_FOLD;
         
-        TRAIN_TRAIN_name = append(path_TRAIN_name,'\TRAIN_TRAIN_LV5_200_80_',num2str(Order_K_FOLD),'.mat');
+        TRAIN_TRAIN_name = append(path_TRAIN_name,'\TRAIN_TRAIN_LV5_500_50_',num2str(Order_K_FOLD),'.mat');
         TRAIN_TRAIN_load = load(TRAIN_TRAIN_name);
         TRAIN_TRAIN = TRAIN_TRAIN_load.TRAIN_TRAIN;
         CLASS_LABEL_TRAIN = TRAIN_TRAIN(:,2);
         
-        TRAIN_TEST_name = append(path_TRAIN_name,'\TRAIN_TEST_LV5_200_80_',num2str(Order_K_FOLD),'.mat');
+        TRAIN_TEST_name = append(path_TRAIN_name,'\TRAIN_TEST_LV5_500_50_',num2str(Order_K_FOLD),'.mat');
         TRAIN_TEST_load = load(TRAIN_TEST_name);
         TRAIN_TEST = TRAIN_TEST_load.TRAIN_TEST;
         CLASS_LABEL_TEST = TRAIN_TEST(:,2);
+        
+        DISTANCE_FOLD = DISTANCE_FOLD + (1/(10^10));
         
         % Select Sample KNN %
         DISTANCE_FOLD_SORT = sort(DISTANCE_FOLD);

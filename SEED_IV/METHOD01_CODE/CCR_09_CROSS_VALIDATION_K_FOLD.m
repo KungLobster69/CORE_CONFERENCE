@@ -2,11 +2,11 @@ clc
 clear all
 close all
 
-for File_path = 1:3
+for File_path = 3
     k = [50,60,70,80];
     for COL_K = 1:size(k,2)
         path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\07.CONVERT2STR\',num2str(File_path));
-        TRAIN_STR_name = append(path_name,'\TRAIN_STR_LV5_500_',num2str(k(COL_K)),'.mat');
+        TRAIN_STR_name = append(path_name,'\TRAIN_STR_LV3_500_',num2str(k(COL_K)),'.mat');
         TRAIN_STR_load = load(TRAIN_STR_name);
         TRAIN_STR = TRAIN_STR_load.CONVERT2STR;
         
@@ -58,8 +58,8 @@ for File_path = 1:3
             % SAVE_DATA %
             create_path = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\09.CROSS_VALIDATION\',num2str(File_path));
             mkdir(create_path)
-            create_TRAIN_TRAIN_DATA = append(create_path,'\TRAIN_TRAIN_LV5_500_',num2str(k(COL_K)),'_',num2str(Order_K_FOLD),'.mat');
-            create_TRAIN_TEST_DATA = append(create_path,'\TRAIN_TEST_LV5_500_',num2str(k(COL_K)),'_',num2str(Order_K_FOLD),'.mat');
+            create_TRAIN_TRAIN_DATA = append(create_path,'\TRAIN_TRAIN_LV3_500_',num2str(k(COL_K)),'_',num2str(Order_K_FOLD),'.mat');
+            create_TRAIN_TEST_DATA = append(create_path,'\TRAIN_TEST_LV3_500_',num2str(k(COL_K)),'_',num2str(Order_K_FOLD),'.mat');
             save(create_TRAIN_TRAIN_DATA,'TRAIN_TRAIN','-v7.3')
             save(create_TRAIN_TEST_DATA,'TRAIN_TEST','-v7.3')
         end

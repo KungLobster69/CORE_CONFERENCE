@@ -2,8 +2,8 @@ clc
 clear
 close all
 
-for File_path = 1:3
-    path_name = append('E:\THESIS\RESULT\SEED_IV_CONFERENCE\METHOD01\04.WAVELET_LV\',num2str(File_path));
+for File_path = 3
+    path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\04.WAVELET_LV\',num2str(File_path));
     BAND_VDO_name = append(path_name,'\BAND_VDO_WAVELET_LV5.mat');
     BAND_VDO_load = load(BAND_VDO_name);
     BAND_VDO = BAND_VDO_load.BAND_VDO;
@@ -44,7 +44,7 @@ for File_path = 1:3
         Moment_VDO(ROW_VDO,2) = BAND_VDO(ROW_VDO,2);
     end
     % SAVE_DATA
-    create_path = append('E:\THESIS\RESULT\SEED_IV_CONFERENCE\METHOD01\05.CALCULATE_MOMENT\',num2str(File_path));
+    create_path = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\05.CALCULATE_MOMENT\',num2str(File_path));
     create_CALCULATE_MOMENT = append(create_path,'\Moment_VDO_LV5_100.mat');
     mkdir(create_path)
     save(create_CALCULATE_MOMENT,'Moment_VDO','-v7.3')

@@ -2,12 +2,12 @@ clc
 clear all
 close all
 
-for File_path = 1
+for File_path = 3
     path_name_Moment = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\14.TEST_CALCULATE_MOMENT\',num2str(File_path));
     Moment_VDO_name = append(path_name_Moment,'\TEST_Moment_VDO_LV5_200.mat');
     Moment_VDO_load = load(Moment_VDO_name);
     Moment_VDO = Moment_VDO_load.Moment_VDO;
-    path_name_Center = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\06.CLUSTERING_CHARACTER\',num2str(File_path));
+    path_name_Center = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\06.CLUSTERING_CHARACTER\2');
     Center_name = append(path_name_Center,'\CENTER_CHARACTER_LV5_200_80.mat');
     Center_load = load(Center_name);
     Center = Center_load.CENTER_CHARACTER;
@@ -70,7 +70,7 @@ for File_path = 1
     
     % SAVE_DATA
     create_path = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\15.TEST_CLUSTERING_CHARACTER\',num2str(File_path));
-    create_CHARACTER_VDO = append(create_path,'\TEST_CHARACTER_VDO_LV5_200_80.mat');
+    create_CHARACTER_VDO = append(create_path,'\TEST_CHARACTER_VDO_LV5_200_80_2.mat');
     mkdir(create_path)
     save(create_CHARACTER_VDO,'CHARACTER_VDO','-v7.3')
 end

@@ -2,9 +2,9 @@ clc
 clear all
 close all
 
-for File_path = 1
+for File_path = 3
     path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\15.TEST_CLUSTERING_CHARACTER\',num2str(File_path));
-    CLUSTERING_CHARACTER_name = append(path_name,'\TEST_CHARACTER_VDO_LV5_200_80');
+    CLUSTERING_CHARACTER_name = append(path_name,'\TEST_CHARACTER_VDO_LV5_200_80_2');
     CLUSTERING_CHARACTER_load = load(CLUSTERING_CHARACTER_name);
     CLUSTERING_CHARACTER = CLUSTERING_CHARACTER_load.CHARACTER_VDO;
     CONVERT2STR = {};
@@ -181,7 +181,7 @@ for File_path = 1
     end
     % SAVE_DATA %
     create_path = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\16.TEST_CONVERT2STR\',num2str(File_path));
-    create_TRAIN_STR = append(create_path,'\TEST_STR_LV5_200_80.mat');
+    create_TRAIN_STR = append(create_path,'\TEST_STR_LV5_200_80_2.mat');
     mkdir(create_path)
     save(create_TRAIN_STR,'CONVERT2STR','-v7.3')
 end

@@ -2,7 +2,7 @@ clc
 clear
 close all
 
-for File_path = 1
+for File_path = 3
     path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\13.TEST_WAVELET_LV\',num2str(File_path));
     BAND_VDO_name = append(path_name,'\TEST_BAND_VDO_WAVELET_LV5.mat');
     BAND_VDO_load = load(BAND_VDO_name);

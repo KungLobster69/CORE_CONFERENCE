@@ -2,11 +2,11 @@ clc
 clear
 close all
 
-for File_path = 1
-    path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\03.TRAIN_AND_TEST_DATA\',num2str(File_path));
-    TEST_VDO_name = append(path_name,'\TEST_VDO.mat');
+for File_path = 3
+    path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD01\02.CLASS_LABEL\',num2str(File_path));
+    TEST_VDO_name = append(path_name,'\DATA_VDO.mat');
     TEST_VDO_load = load(TEST_VDO_name);
-    TEST_VDO = TEST_VDO_load.TEST_VDO;
+    TEST_VDO = TEST_VDO_load.DATA_VDO;
     for ROW_VDO = 1:size(TEST_VDO,1)
         VDO = TEST_VDO{ROW_VDO,1};
         NEXT_CH = 0;

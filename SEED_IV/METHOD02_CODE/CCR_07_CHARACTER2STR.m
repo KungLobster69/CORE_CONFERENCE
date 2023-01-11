@@ -5,7 +5,7 @@ close all
 k = [50,60,70,80];
 for COL_K = 1:size(k,2)
     path_name = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD02\06.CLUSTERING_CHARACTER');
-    CLUSTERING_CHARACTER_name = append(path_name,'\CHARACTER_VDO_LV5_300_',num2str(k(COL_K)),'.mat');
+    CLUSTERING_CHARACTER_name = append(path_name,'\CHARACTER_VDO_LV5_200_',num2str(k(COL_K)),'.mat');
     CLUSTERING_CHARACTER_load = load(CLUSTERING_CHARACTER_name);
     CLUSTERING_CHARACTER = CLUSTERING_CHARACTER_load.CHARACTER_VDO;
     CONVERT2STR = {};
@@ -182,7 +182,7 @@ for COL_K = 1:size(k,2)
     end
     % SAVE_DATA %
     create_path = append('D:\KUNG_LOBSTER69\RESULT\SEED_IV_CONFERENCE\METHOD02\07.CONVERT2STR');
-    create_TRAIN_STR = append(create_path,'\TRAIN_STR_LV5_300_',num2str(k(COL_K)),'.mat');
+    create_TRAIN_STR = append(create_path,'\TRAIN_STR_LV5_200_',num2str(k(COL_K)),'.mat');
     mkdir(create_path)
     save(create_TRAIN_STR,'CONVERT2STR','-v7.3')
 end
